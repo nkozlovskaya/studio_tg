@@ -1,20 +1,16 @@
 import { FC, useState } from "react";
-
-// import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { peopleAPI } from "../../features/people/peopleAPI";
 import { IPerson } from "../../types/PersonType";
 
-import styles from "./PeopleList.module.css";
+
 import { PersonItem } from "./PersonItem";
 
 export const PeopleList: FC = () => {
-  // const dispatch = useAppDispatch();
-  const [page, setPage] = useState(10);
+  const [page, setPage] = useState(7);
   const {
     data: people,
     error,
     isLoading,
-    refetch,
   } = peopleAPI.useFetchPeopleQuery(page);
 
   return (

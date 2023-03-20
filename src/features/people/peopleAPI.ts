@@ -11,7 +11,7 @@ export const peopleAPI = createApi({
       query: (page: number) => ({
         url: `/people`,
         params: {
-          _page: page,
+          page
         },
       }),
       providesTags: (result) => ["People"],
