@@ -19,6 +19,7 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.HOME]: {
     path: RoutePath.home,
     element: <HomePage />,
+    errorElement: <ErrorPage />,
   },
   [AppRoutes.CHARACTERS]: {
     path: RoutePath.characters,

@@ -1,7 +1,10 @@
+@import './../../styles/variables.sass'
+    
+    
 .navbar
     width: 100%
     height: 93px
-    background: #1F2A63
+    background: $main-color
     display: flex
     justify-content: space-between
     &_logo
@@ -12,9 +15,13 @@
         margin-right: 153px
         margin-top: 25px
     &_link
-        color: #F6F7F9
+        color: $link-color
         font-size: 25px
         line-height: 29px
         text-decoration: none
         margin-left: 74px
+    &_line
+        background: linear-gradient(180deg, $grey-color 0%,$main-color 100%)
+        height: 4px
+        width: 100%
 
