@@ -2,18 +2,34 @@
 @import './../../styles/variables.sass'    
     
 .error
-    height: 100%
+    // height: 100%
     background: $dark-color
     position: relative
     &_h
-        position: absolute
-        // margin-top: 23px
-        // margin-left: 82px
-        margin: auto
         font-size: 700px
         color: rgba(255, 255, 255, 0.5)
-        z-index: 1
+        text-align: center
+        
     &_img
+        display: inline-block
+        position: absolute
+        top: 120px
+        left: 525px
+        height: 623px
+        width: 620px
+    &_btn
+        height: 66px
+        width: 231px
         display: block
-        margin:  auto
-        z-index: 5
+        margin: 22px auto
+        background: $green-color
+        box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18)
+        border-radius: 11px
+        font-family: 'Karla'
+        font-weight: 700
+        font-size: 23px
+        line-height: 27px
+
+
+
+        
