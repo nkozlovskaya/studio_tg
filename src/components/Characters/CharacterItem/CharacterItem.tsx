@@ -7,7 +7,7 @@ interface CharacterItemProps {
 }
 
 export const CharacterItem: FC<CharacterItemProps> = ({ person }) => {
-  const [gender, setGender] = useState("");
+  // const [gender, setGender] = useState("");
 
   // let className = "character_gender";
   // if (gender === "female") {
