@@ -1,0 +1,57 @@
+@import './../../../styles/variables.sass'
+@import './../../../styles/mixins.sass'
+
+.character
+  height: 137px
+  width: 352px
+  border-radius: 8px
+  background: $light-grey-color
+  padding: 0 calc(50% - 563px)
+  &_name
+    font-weight: 700
+    font-size: 18px
+    line-height: 21px
+    text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1)
+    margin-top: 5px
+    margin-left: 26px
+    color: $black-color
+  &_facts
+    display: flex
+    justify-content: flex-start
+    margin-top: 21px
+    margin-left: 37px
+  &_fact
+    margin-right: 33px
+    padding: 7px
+    height: 38px
+    width: 38px
+    border: 3px solid $black-color
+    border-radius: 50%
+    shape-inside: circle(50% at center center)
+    text-align: center
+    font-size: 15px
+    color: $black-color
+  &_info
+    font-size: 12px
+    line-height: 14px
+    color: $info-color
+    margin-right: 15px
+    margin-top: 6px
+  &_descr
+    display: flex
+    margin-top: 11px
+    margin-left: 26px
+  &_gender
+    @include infoCharacter
+  &_birth_year
+    @include infoCharacter
+    background: $light-blue-color
+    margin-left: 13px
+
+.male
+  background: $green-color
+.female
+  background: $violet-color
+.hermaphrodite
+  background: $light-yellow-color
+  

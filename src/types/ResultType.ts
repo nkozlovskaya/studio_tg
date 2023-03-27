@@ -1,8 +1,8 @@
-import { IPerson } from "./PersonType";
+import { ICharacter } from "./CharacterType";
 
 export interface IResult {
   count: number;
   next: string;
   previous?: any;
-  results: IPerson[];
+  results: ICharacter[];
 }

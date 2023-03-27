@@ -1,12 +1,12 @@
 import { FC } from "react";
+import { CharactersList } from "../components/Characters/CharactersList/CharactersList";
 import { Navbar } from "../components/Navbar/Navbar";
-import { PeopleList } from "../components/People/PeopleList";
 
 export const CharactersPage: FC = () => {
   return (
     <div>
       <Navbar />
-      <PeopleList />
+      <CharactersList />
     </div>
   );
 };

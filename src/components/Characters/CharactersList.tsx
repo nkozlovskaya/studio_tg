@@ -1,11 +1,12 @@
 import { FC, useState } from "react";
 import { peopleAPI } from "../../features/people/peopleAPI";
-import { IPerson } from "../../types/PersonType";
+import { IPerson } from "../../types/CharacterType";
+import { CharacterItem } from "./CharacterItem/CharacterItem";
+import "./CharactersList.sass";
 
+// import { CharacterItem } from "./CharacterItem";
 
-import { PersonItem } from "./PersonItem";
-
-export const PeopleList: FC = () => {
+export const CharactersList: FC = () => {
   const [page, setPage] = useState(7);
   const {
     data: people,
@@ -15,11 +16,12 @@ export const PeopleList: FC = () => {
 
   return (
     <div>
+      <h1 className="header">60 Peoples for you to choose your favorite</h1>
       {isLoading && <h1>Идет загрузка...</h1>}
       {error && <h1>Произошла ошибка при загрузке</h1>}
       {people &&
         people.results.map((person: IPerson) => (
-          <PersonItem key={person.name} person={person} />
+          <CharacterItem key={person.name} person={person} />
         ))}
     </div>
   );
