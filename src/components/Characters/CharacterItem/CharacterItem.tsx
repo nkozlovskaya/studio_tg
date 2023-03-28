@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { ICharacter } from "../../../types/CharacterType";
 import "./CharacterItem.sass";
 
@@ -7,19 +7,6 @@ interface CharacterItemProps {
 }
 
 export const CharacterItem: FC<CharacterItemProps> = ({ person }) => {
-  // const [gender, setGender] = useState("");
-
-  // let className = "character_gender";
-  // if (gender === "female") {
-  //   return (className += " male");
-  // }
-  // if (gender === "female") {
-  //   return (className += " female");
-  // }
-  // if (gender === "hermaphrodite") {
-  //   return (className += " hermaphrodite");
-  // }
-
   return (
     <div className="character">
       <h3 className="character_name"> {person.name}</h3>
