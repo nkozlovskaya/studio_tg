@@ -20,7 +20,7 @@ export const Navbar: FC = () => {
           </Link>
         </div>
       </div>
-      <div className="navbar_line"></div>
+      <div className="navbar_line" />
     </>
   );
 };
