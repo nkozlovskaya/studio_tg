@@ -1,32 +1,34 @@
 import { FC, useState } from "react";
-import { peopleAPI } from "../../../features/people/peopleAPI";
+import { peopleAPI } from "../../../features/reducers/peopleAPI";
 import { CharacterItem } from "./../CharacterItem/CharacterItem";
 import { ICharacter } from "../../../types/CharacterType";
 import "./CharactersList.sass";
 import { Select } from "../../Select/Select";
+import { useDispatch } from "react-redux";
+import changeColor from "../../../features/reducers/changeColorSlice";
 
 export const CharactersList: FC = () => {
   const [page, setPage] = useState(1);
-  const [characters, setCharacters] = useState([]);
   const {
     data: people,
     error,
     isLoading,
   } = peopleAPI.useFetchPeopleQuery(page);
 
+  const [characters, setCharacters] = useState(people);
+
   const eyeColors = ["All", "brown", "red", "blue", "white"];
 
   const [color, setColor] = useState("All");
 
-  const changeColor = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setColor(e.target.value);
-    console.log(color);
-    setCharacters(
-      people.results.map((character) => character.eye_color === e.target.value)
-    );
+  const changeColorFunc = (color: string) => {
+    setColor(color);
+    if (people) {
+      setCharacters(
+        people.results.filter((character) => character.eye_color === color)
+      );
+    }
   };
-
-  // const sortCharactersColorEyes=(colorEye:SelectHTMLAttributes<HTMLSelectElement>)=>{console.log(colorEye);}
 
   return (
     <div>
@@ -41,7 +43,11 @@ export const CharactersList: FC = () => {
           <div className="select">
             <div className="select_text">color eye</div>
 
-            <Select options={eyeColors} value={color} onChange={changeColor} />
+            <Select
+              value={color}
+              options={eyeColors}
+              onChange={changeColorFunc}
+            />
           </div>
 
           {isLoading && <h1>Идет загрузка...</h1>}
@@ -50,9 +56,11 @@ export const CharactersList: FC = () => {
 
           <div className="characters">
             {people &&
-              people.results.map((person: ICharacter) => (
-                <CharacterItem key={person.name} person={person} />
-              ))}
+              people.results
+                .map((person: ICharacter) => (
+                  <CharacterItem key={person.name} person={person} />
+                ))
+                .slice(0, -1)}
           </div>
         </div>
       </div>

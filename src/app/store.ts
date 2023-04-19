@@ -4,7 +4,7 @@ import {
   Action,
   combineReducers,
 } from "@reduxjs/toolkit";
-import { peopleAPI } from "../features/people/peopleAPI";
+import { peopleAPI } from "../features/reducers/peopleAPI";
 
 const rootReducer = combineReducers({
   [peopleAPI.reducerPath]: peopleAPI.reducer,

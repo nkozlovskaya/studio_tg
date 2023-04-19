@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { peopleAPI } from "../../features/people/peopleAPI";
+import { peopleAPI } from "../../features/reducers/peopleAPI";
 import { ICharacter } from "../../types/CharacterType";
 import { CharacterItem } from "./CharacterItem/CharacterItem";
 import "./CharactersList.sass";
