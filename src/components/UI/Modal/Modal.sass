@@ -1,0 +1,20 @@
+@import './../../../styles/variables.sass'
+    
+.modal
+    width: 100vw
+    height: 100vh
+    background-color: rgba(33,33,33,0.5)
+    position: fixed
+    top: 0
+    left: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    transform: scale(0)
+    &_content
+        height: 371px
+        width: 797px
+        background-color: $main-color
+      
+.modal.active
+     transform: scale(1)
