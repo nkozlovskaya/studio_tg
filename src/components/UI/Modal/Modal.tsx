@@ -3,16 +3,21 @@ import "./Modal.sass";
 
 interface ModalProps {
   active: boolean;
-  setActive: (str: boolean) => void;
+  onClose: () => void;
 }
 
-export const Modal: FC<ModalProps> = ({ active, setActive }) => {
+export const Modal: FC<ModalProps> = ({ active, onClose }) => {
+  if (!active) {
+    return null;
+  }
   return (
-    <div
-      className={active ? "modal active" : "modal"}
-      onClick={() => setActive(false)}
-    >
+    <div className="modal" onClick={onClose}>
       <div className="modal_content" onClick={(e) => e.stopPropagation()}></div>
+      {/* <button className="modal_close" onClick={onClose}>
+        x
+      </button> */}
     </div>
   );
 };
+
+// <div className={active ? "modal active" : "modal"} onClick={closeModal}>

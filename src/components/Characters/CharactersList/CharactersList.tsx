@@ -3,6 +3,7 @@ import { peopleAPI } from "../../../features/reducers/peopleAPI";
 import { CharacterItem } from "./../CharacterItem/CharacterItem";
 import { ICharacter } from "../../../types/CharacterType";
 import "./CharactersList.sass";
+import { Modal } from "../../UI/Modal/Modal";
 // import { Select } from "../../UI/Select/Select";
 // import { useDispatch } from "react-redux";
 // import changeColor from "../../../features/reducers/changeColorSlice";
@@ -14,6 +15,12 @@ export const CharactersList: FC = () => {
     error,
     isLoading,
   } = peopleAPI.useFetchPeopleQuery(page);
+
+  const [modalActive, setModalActive] = useState<boolean>(false);
+
+  const closeModal = () => {
+    setModalActive((active) => !active);
+  };
 
   // const [characters, setCharacters] = useState(people);
 
@@ -31,7 +38,7 @@ export const CharactersList: FC = () => {
   // };
 
   return (
-    <div>
+    <div className='main'>
       <div className="content">
         <div className="lang" onClick={() => console.log("hi!")}>
           language: en
@@ -58,13 +65,23 @@ export const CharactersList: FC = () => {
             {people &&
               people.results
                 .map((person: ICharacter) => (
-                  <CharacterItem key={person.name} person={person} />
+                  <>
+                    <CharacterItem
+                      key={person.name}
+                      person={person}
+                      onActive={() => setModalActive(true)}
+                    />
+
+                    <Modal active={modalActive} onClose={closeModal} />
+                  </>
                 ))
                 .slice(0, -1)}
           </div>
         </div>
       </div>
-      <img src="../../../../../img/Frame 1.png" alt="Frame" className="img" />
+      <button className="change-lang">
+        <img src="../../../../../img/Frame 1.png" alt="Frame" className="img" />
+      </button>
     </div>
   );
 };

@@ -1,16 +1,15 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { ICharacter } from "../../../types/CharacterType";
-import { Modal } from "../../UI/Modal/Modal";
 import "./CharacterItem.sass";
 
 interface CharacterItemProps {
   person: ICharacter;
+  onActive: () => void;
 }
 
-export const CharacterItem: FC<CharacterItemProps> = ({ person }) => {
-  const [modalActive, setModalActive] = useState(false);
+export const CharacterItem: FC<CharacterItemProps> = ({ person, onActive }) => {
   return (
-    <div className="character" onClick={() => setModalActive(true)}>
+    <div className="character" onClick={onActive}>
       <h3 className="character_name"> {person.name}</h3>
       <div className="character_facts">
         {person.height && (
@@ -40,7 +39,6 @@ export const CharacterItem: FC<CharacterItemProps> = ({ person }) => {
           <div className="character_birth_year"> {person.birth_year}</div>
         )}
       </div>
-      <Modal active={modalActive} setActive={setModalActive} />
     </div>
   );
 };
