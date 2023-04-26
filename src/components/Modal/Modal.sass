@@ -1,0 +1,100 @@
+@import './../../styles/variables.sass'
+@import './../../styles/mixins.sass'
+    
+.modal
+    width: 100vw
+    height: 100vh
+    background-color: rgba(33,33,33,0.5)
+    position: fixed
+    top: 0
+    left: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    &_content
+        height: 371px
+        width: 800px
+        display: flex
+        
+    &_close
+        font-size: 110%
+        color: darkred
+        right: 10px
+        width: 24px
+        height: 24px
+        border: none
+        background: transparent
+        cursor: pointer
+    &_gender
+        @include genderBirthYear
+    &_birth_year
+        @include genderBirthYear
+        width: 48px
+        background: $light-blue-color
+        margin-left: 10px
+
+.hermaphrodite
+  @include hermaphrodite
+  height: 14px
+
+.foto
+    position: relative
+    width: 371px
+    background-color: $main-color
+    box-shadow: 4px 4px 8px rgba(1, 28, 64, 0.2)
+    border-radius: 8px 0px 0px 8px
+    padding-top: 16px
+    &_info
+        position: absolute
+        top: 339px
+        left: 190px
+        display: flex
+
+
+.descr
+    background: linear-gradient(180deg, $dark-color 42.19%, $main-color 100%)
+    width: 429px
+    border-radius: 0 16px 16px 0
+    display: flex
+    flex-direction: column
+    padding-top: 30px
+    padding-left: 13px
+    &_name
+        font-size: 36px
+        color: $modal-color
+    &_info
+        margin-top: 23px
+        padding-top: 15px
+        padding-left: 25px
+        width: 264px
+        height: 104px
+        background-color: $modal-color
+        box-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1)
+        border-radius: 8px   
+    &_text
+        font-size: 16px
+        line-height: 20px
+        color: $header-color
+    &_extra
+        margin-top: 77px
+        margin-left: 15px
+        display: flex   
+        &_data
+            @include heightMass 
+            margin-top: 8px
+            margin-left: 25px
+            
+            
+.size
+    width: 83px
+    height: 70px
+    margin-right: 24px
+    background: $modal-color
+    box-shadow: 4px 4px 24px rgba(1, 17, 38, 0.2)
+    border-radius: 8px
+
+.evidence
+    font-size: 12px
+    text-align: center
+    margin-top: 6px
+    

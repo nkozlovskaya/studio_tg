@@ -21,16 +21,7 @@
     margin-top: 21px
     margin-left: 37px
   &_fact
-    margin-right: 33px
-    padding: 7px
-    height: 38px
-    width: 38px
-    border: 3px solid $black-color
-    border-radius: 50%
-    shape-inside: circle(50% at center center)
-    text-align: center
-    font-size: 15px
-    color: $black-color
+    @include heightMass
   &_info
     font-size: 12px
     line-height: 14px
@@ -42,9 +33,9 @@
     margin-top: 11px
     margin-left: 26px
   &_gender
-    @include infoCharacter
+    @include genderBirthYear
   &_birth_year
-    @include infoCharacter
+    @include genderBirthYear
     background: $light-blue-color
     margin-left: 13px
 
@@ -53,5 +44,5 @@
 .female
   background: $violet-color
 .hermaphrodite
-  background: $light-yellow-color
+  @include hermaphrodite
   
