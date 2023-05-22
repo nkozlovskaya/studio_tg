@@ -17,6 +17,10 @@ export const Modal: FC<ModalProps> = ({ active, onClose, person }) => {
     <div className="modal" onClick={onClose}>
       <div className="modal_content" onClick={(e) => e.stopPropagation()}>
         <>
+          <button className="closeIcon" onClick={onClose}>
+            <img src="../../../../img/closeIcon.png" alt="close" />
+          </button>
+
           <div className="foto">
             {person.gender === "female" && (
               <>
@@ -47,9 +51,7 @@ export const Modal: FC<ModalProps> = ({ active, onClose, person }) => {
                     {person.gender}
                   </div>
                   {person.birth_year !== "unknown" && (
-                    <div className="modal_birth_year">
-                      {person.birth_year}
-                    </div>
+                    <div className="modal_birth_year">{person.birth_year}</div>
                   )}
                 </div>
               </>
