@@ -1,0 +1,25 @@
+@import '../../../styles/variables.sass'
+.paginate 
+  display: flex
+  justify-content: center
+  width: 1200px
+  margin: 20px auto
+
+.paginate-btn 
+  margin: 5px
+  height: 50px
+  width: 150px
+  font-size: 16px
+  border: none
+  border-radius: 10px
+  background-color: $main-color
+  color: rgb(255, 255, 255)
+  text-shadow: 0 1px 1px #2d2020
+  padding: 10px 20px
+  cursor: pointer
+
+.prev:before
+  content: '\2190 '
+
+.next:before
+  content: '\2192'

@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-// import { IPerson } from "../../types/PersonType";
 import { IResult } from "../../types/ResultType";
 
 export const peopleAPI = createApi({
@@ -8,12 +7,13 @@ export const peopleAPI = createApi({
   tagTypes: ["People"],
   endpoints: (build) => ({
     fetchPeople: build.query<IResult, number>({
-      query: (page: number) => ({
-        url: `/people`,
-        params: {
-          page
-        },
-      }),
+      query: (page) => `/people/?page=${page}`,
+      // ({
+      // url: (page) => `/people?page=${page}`,
+      // params: {
+      //   page,
+      // },
+      // })
       providesTags: (result) => ["People"],
     }),
   }),

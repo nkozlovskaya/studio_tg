@@ -19,7 +19,7 @@ export const CharacterItem: FC<CharacterItemProps> = ({ person }) => {
       <div className="character" onClick={onActive}>
         <h3 className="character_name"> {person.name}</h3>
         <div className="character_facts">
-          {person.height && (
+          {person.height && person.height !== "unknown" && (
             <div>
               <div className="character_fact">{person.height}</div>
               <div className="character_info">height</div>

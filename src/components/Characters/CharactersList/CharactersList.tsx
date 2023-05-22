@@ -3,17 +3,20 @@ import { peopleAPI } from "../../../features/reducers/peopleAPI";
 import { CharacterItem } from "./../CharacterItem/CharacterItem";
 import { ICharacter } from "../../../types/CharacterType";
 import "./CharactersList.sass";
+import { PaginationNextPage } from "../../UI/Pagination/PaginationNextPage";
+import { Pagination } from "../../UI/Pagination/Pagination";
+// import { Select } from "../../UI/Select/Select";
 // import { Select } from "../../UI/Select/Select";
 // import { useDispatch } from "react-redux";
 // import changeColor from "../../../features/reducers/changeColorSlice";
 
 export const CharactersList: FC = () => {
-  const [page, setPage] = useState(2);
+  const [currentPage, setCurrentPage] = useState(1);
   const {
     data: people,
     error,
     isLoading,
-  } = peopleAPI.useFetchPeopleQuery(page);
+  } = peopleAPI.useFetchPeopleQuery(currentPage);
 
   // const [characters, setCharacters] = useState(people);
 
@@ -25,7 +28,9 @@ export const CharactersList: FC = () => {
   //   setColor(color);
   //   if (people) {
   //     setCharacters(
-  //       people.results.filter((character) => character.eye_color === color)
+  //       people.results.filter((character) => {
+  //         character.eye_color === color;
+  //       })
   //     );
   //   }
   // };
@@ -40,15 +45,15 @@ export const CharactersList: FC = () => {
           {people && people.count} Peoples for you to choose your favorite
         </h1>
         <div>
-          <div className="select">
+          {/* <div className="select">
             <div className="select_text">color eye</div>
 
-            {/* <Select
+            <Select
               value={color}
               options={eyeColors}
               onChange={changeColorFunc}
-            /> */}
-          </div>
+            />
+          </div> */}
 
           {isLoading && <h1>Идет загрузка...</h1>}
 
@@ -64,6 +69,16 @@ export const CharactersList: FC = () => {
           </div>
         </div>
       </div>
+      {currentPage === 1 ? (
+        <PaginationNextPage nextPage={() => setCurrentPage(currentPage + 1)} />
+      ) : (
+        <Pagination
+          currentPage={currentPage}
+          nextPage={() => setCurrentPage(currentPage + 1)}
+          prevPage={() => setCurrentPage(currentPage - 1)}
+          firstPage={() => setCurrentPage(1)}
+        />
+      )}
       <button className="change-lang">
         <img src="../../../../../img/Frame 1.png" alt="Frame" />
       </button>
